@@ -90,8 +90,8 @@ public class PlaneSeatReservation {
                 int testBtoD = maskFreeBtoD | occupied;
                 int testDtoG = maskFreeDtoG | occupied;
                 int testFtoJ = maskFreeFtoJ | occupied;
-                if (testDtoG == maskFreeDtoG &&
-                        (testBtoD != maskFreeBtoD && testFtoJ != maskFreeFtoJ)) { // falls into continuous D-G arrangement
+                if (testDtoG == maskFreeDtoG && testBtoD != maskFreeBtoD &&
+                    testFtoJ != maskFreeFtoJ) { // falls into continuous D-G arrangement
                     count++;
                 }
                 if (testBtoD == maskFreeBtoD) { // falls into 2+2 B-D arrangement
