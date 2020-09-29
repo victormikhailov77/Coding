@@ -1,4 +1,4 @@
-package org.example;
+package coding.maxsibling;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,10 +8,24 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.stream.Collectors;
 
+/**
+ * Find a max sibling number for the given positive integer
+ * Sibling numbers are integers made up from the same digits in different order
+ * Example: for the number 1234 siblings are 3241, 4321, 1432, 2431
+ * Special cases: if input number exceeds 100000000, or negative, return -1
+ */
 public class MaxSiblingNumber {
 
+    private static final int MAX_ALLOWED_VALUE = 100000000;
+
+    /**
+     * Find a sibling number for the given N
+     *
+     * @param N input number
+     * @return max sibling number
+     */
     public int findMaxSibling(int N) {
-        if (N >= 100000000) {
+        if (N >= MAX_ALLOWED_VALUE) {
             return -1;
         }
         if (N == 0) {
@@ -36,7 +50,6 @@ public class MaxSiblingNumber {
         return Integer.parseInt(sb.toString());
     }
 
-
     public static void main(String args[]) throws IOException {
         // read input parameters
         List<Integer> ints = Files.lines(Paths.get("test-input.txt"))
@@ -50,5 +63,4 @@ public class MaxSiblingNumber {
             System.out.println("Source: " + number + " Max sibling: " + result);
         }
     }
-
 }
